@@ -1,4 +1,4 @@
-# frontend
+# aiko-learning-client
 
 ## Project setup
 ```
