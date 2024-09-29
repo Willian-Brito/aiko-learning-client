@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+ const store = new Vuex.Store({
     state: {
         isMenuVisible: true,
         user: {
@@ -22,3 +22,5 @@ export default new Vuex.Store({
         }
     }
 })
+
+export default store
