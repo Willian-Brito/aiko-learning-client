@@ -1,6 +1,6 @@
 <template>
     <footer class="footer">
-        <span>Copyright <strong>Aiko</strong> © 2024</span>
+        <span>Copyright <strong>Aiko Digital</strong> © 2024</span>
     </footer>
 </template>
 

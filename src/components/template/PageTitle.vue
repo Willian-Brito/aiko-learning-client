@@ -1,8 +1,15 @@
 <template>
     <div class="page-title">
-        <h1><i v-if="icon" :class="icon"></i> {{ main }}</h1>
-        <h2>{{ sub }}</h2>
-        <hr>
+        <div class="card">
+            <h1 class="card-header page-title-card-header">
+                <i v-if="icon" :class="icon"></i>
+                {{ main }}
+            </h1>
+            <!-- <hr> -->
+            <!-- <div class="card-body">
+
+            </div> -->
+        </div>
     </div>
 </template>
 
@@ -14,13 +21,28 @@ export default {
 </script>
 
 <style>
-    .page-title h1 {
-        margin: 0px;
+
+    .page-title {
+        margin-top: 15px;
+    }
+
+    .page-title h1{
+        font-size: 2rem;
+    }
+
+    .page-title i {
+        margin-right: 5px;
     }
 
     .page-title h2 {
         color: var(--bs-navbar-color);
-        margin-top: 5px;
         font-size: 1.3rem;
+    }
+
+    .page-title-card-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 </style>

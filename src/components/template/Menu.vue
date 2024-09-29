@@ -11,11 +11,11 @@
     :style="{ 'pointer-events': disableHover ? 'none' : 'auto' }"
   >
     <div class="app-brand demo">
-        <a href="index.html" class="app-brand-link" style="cursor: pointer;">
+        <router-link to="/" class="app-brand-link" style="cursor: pointer;">
           <span class="app-brand-logo demo">
             <img src="@/assets/images/logo.png" :style="logoStyle" alt="logo da aiko">
           </span>              
-        </a>
+        </router-link>
 
         <a id="btn-arrow" 
            :class="['layout-menu-toggle', 'menu-link', 'text-large', { 'arrow': close }]"
