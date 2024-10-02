@@ -28,16 +28,14 @@
 
                 <!-- Theme -->
                 <div class="d-flex">
-                    <div class="btn-menu">
-                        <a href="https://github.com/Willian-Brito/aiko-learning-client" target="_blank" style="color: var(--bs-navbar-hover-color);">
-                            <i class='bx bxl-github'></i>
-                        </a>  
+                    <div class="btn-menu" @click="openLink('https://github.com/Willian-Brito/aiko-learning-client')">
+                        <i class='bx bxl-github'></i>                        
                     </div>                    
                     <div class="btn-menu">
                         <i class='bx bx-bell'></i>
                     </div>
-                    <div class="btn-menu">
-                        <i class='bx bx-sun'></i>
+                    <div class="btn-menu" @click="toggleTheme">
+                        <i :class="currentTheme == 'light' ? 'bx bx-sun' : 'bx bx-moon'"></i>
                     </div>
                 </div>
                 <!-- /Theme -->
@@ -53,12 +51,23 @@
 
 <script>
 import UserDropdown from './UserDropdown.vue';
+import { mapState } from 'vuex'
 
 export default {
     name: 'Header',
     components: { UserDropdown },
     props: {
       showHeader: Boolean
+    },
+    computed: mapState(['currentTheme']),
+    methods: {
+        openLink(link) {
+            window.open(link, '_blank');
+        },
+        toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            this.$store.commit('toggleTheme')
+        }
     }
 }
 </script>
@@ -79,6 +88,7 @@ export default {
         width: 38px;
         margin-right: 10px;
         cursor: pointer;
+        color: var(--bs-color-icon);
     }
 
     .btn-menu:hover {

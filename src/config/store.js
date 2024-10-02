@@ -6,6 +6,7 @@ Vue.use(Vuex)
  const store = new Vuex.Store({
     state: {
         isMenuVisible: true,
+        currentTheme: 'light',
         user: {
             name: 'Willian Brito',
             email: 'wbrito@aiko.digital',
@@ -19,6 +20,9 @@ Vue.use(Vuex)
             } else {
                 state.isMenuVisible = isVisible
             }
+        },
+        toggleTheme() {
+            this.state.currentTheme = this.state.currentTheme == 'light' ? 'dark' : 'light'
         }
     }
 })

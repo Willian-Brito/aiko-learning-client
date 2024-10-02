@@ -2,7 +2,7 @@
     <div class="card mt-3">
         <div class="card-body">                
             <div class="d-flex align-items-start row">
-                <div class="col-sm-10">
+                <div class="col-sm-9">
                     <div class="card-body">
                         <div class="col-11 col-lg-11 card-separator">
                             <h5 class="mb-2">Bem vindo de volta,<span class="h4"> {{ user.name }} 👋🏻</span></h5>

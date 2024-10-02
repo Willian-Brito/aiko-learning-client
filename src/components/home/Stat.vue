@@ -32,7 +32,7 @@ export default {
         display: flex;
         border-radius: var(--bs-border-radius);
         margin: 20px 0;
-        background-color: var(--bs-white);
+        background-color: var(--bs-color-light);
         padding: 20px;
         border: 1px solid var(--bs-border-color);
         box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);

@@ -15,12 +15,12 @@
                     <div class="d-flex" style="cursor: default;">
                         <div class="flex-shrink-0 me-3">
                         <div class="user-dropdown-img avatar avatar-online">
-                            <Gravatar :email="user.email" alt="Usuário"/>
+                            <Gravatar :email="user.email" alt="Usuário" />
                         </div>
                         </div>
                         <div class="flex-grow-1">
-                        <h6 class="mb-0">{{ user.name }}</h6>
-                        <small class="text-muted">{{ user.isAdmin ? 'Admin' : 'Common' }}</small>
+                            <h6 class="mb-0" style="color: var(--bs-color-icon)">{{ user.name }}</h6>
+                            <small class="text-muted">{{ user.isAdmin ? 'Admin' : 'Comum' }}</small>
                         </div>
                     </div>
                 </li>
@@ -28,26 +28,23 @@
                     <div class="dropdown-divider my-1"></div>
                 </li>
                 <li>
-                    <a class="dropdown-item" href="#">
-                    <i class="bx bx-user bx-md"></i><span>Perfil</span>
-                    </a>
+                    <router-link to="" class="dropdown-item" style="color: var(--bs-color-icon)">
+                        <i class="bx bx-user bx-md"></i><span>Perfil</span>
+                    </router-link>
                 </li>
                 <li>
-                    <router-link to="/admin" class="dropdown-item">
-
-                        <!-- <a class= href="#">  -->
-                            <i class="bx bx-cog bx-md"></i>
-                            <span>Configurações</span> 
-                        <!-- </a> -->
+                    <router-link to="/admin" class="dropdown-item" style="color: var(--bs-color-icon)">
+                        <i class="bx bx-cog bx-md"></i>
+                        <span>Configurações</span> 
                     </router-link>
                 </li>
                 <li>
                     <div class="dropdown-divider my-1"></div>
                 </li>
                 <li>
-                    <a class="dropdown-item" href="javascript:void(0);">
-                    <i class="bx bx-power-off bx-md"></i><span>Sair</span>
-                    </a>
+                    <router-link to="" class="dropdown-item" style="color: var(--bs-color-icon)">
+                        <i class="bx bx-power-off bx-md"></i><span>Sair</span>
+                    </router-link>
                 </li>
                 </ul>
             </li> 
@@ -86,7 +83,7 @@ export default {
     .user-button {
         display: flex;
         align-items: center;
-        color: var(--bs-navbar-hover-color);
+        /* color: var(--bs-navbar-hover-color); */
         font-weight: 100;
         height: 100%;
         padding: 0px 5px;

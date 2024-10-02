@@ -5,7 +5,7 @@ class UserController {
     
     async GetAll() {
         const response = await axios.get(`${BASE_API_URL}/user`)
-        const users = response.data.data;
+        const users = response.data.payload;
         users.forEach(item => delete item.articles);
 
         return users

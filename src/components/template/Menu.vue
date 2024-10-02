@@ -13,8 +13,10 @@
     <div class="app-brand demo">
         <router-link to="/" class="app-brand-link" style="cursor: pointer;">
           <span class="app-brand-logo demo">
-            <img src="@/assets/images/logo.png" :style="logoStyle" alt="logo da aiko">
-          </span>              
+            <img 
+              :src="getLogo" 
+              :style="logoStyle" alt="logo da aiko">
+          </span>
         </router-link>
 
         <a id="btn-arrow" 
@@ -28,6 +30,9 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
+
 export default {
   name: 'Menu',
   data() {
@@ -38,6 +43,7 @@ export default {
     }
   },
   computed: {
+    ...mapState(['currentTheme']),
     logoStyle() {
       return this.close
         ? {
@@ -51,6 +57,11 @@ export default {
             transition: 'all 0.3s ease',
           };
     },
+    getLogo() {
+      return this.currentTheme == 'light' 
+        ? require('@/assets/images/logo.png') 
+        : require('@/assets/images/logo-white.png')
+    }
   },
   methods: {
     toggleMenu() {

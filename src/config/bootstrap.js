@@ -2,10 +2,10 @@
 import 'font-awesome/css/font-awesome.css'
 
 // Style
-import '@/assets/vendor/css/core.css'
-import '@/assets/vendor/css/theme-default.css'
+import '@/assets/vendor/css/core-light.css'
+import '@/assets/vendor/css/theme-light.css'
 // import '@/assets/vendor/css/core-dark.css'
-// import '@/assets/vendor/css/theme-default-dark.css'
+// import '@/assets/vendor/css/theme-dark.css'
 import '@/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css'
 import '@/assets/vendor/fonts/boxicons.css'
 import '@/assets/css/aiko.css'

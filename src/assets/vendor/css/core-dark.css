@@ -112,7 +112,11 @@
     --bs-form-valid-color: #71dd37;
     --bs-form-valid-border-color: #71dd37;
     --bs-form-invalid-color: #ff3e1d;
-    --bs-form-invalid-border-color: #ff3e1d
+    --bs-form-invalid-border-color: #ff3e1d;
+    --bs-text: #d5d5e2;
+    --bs-btn-hover: rgba(230, 230, 241, 0.06);
+    
+    --bs-color-light: #2b2c40;
 }
 *,*::before,*::after{
     box-sizing:border-box

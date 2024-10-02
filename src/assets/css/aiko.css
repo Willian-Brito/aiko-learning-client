@@ -115,3 +115,41 @@
     margin-top: 1rem;
   }
   
+  /*
+  * Scroll demo
+  ******************************************************************************/
+
+/* PRINCIPAL */
+:root {
+  overflow: auto;
+}
+
+  :root::-webkit-scrollbar {
+      width: 10px;
+      background: var(--bs-scrollbar);
+  }
+
+  :root::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.1);
+  }
+
+  :root::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: var(--bs-primary);
+  }
+
+/* DIV */
+div::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background: var(--bs-color-light);
+}
+
+div::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.1);
+}
+
+div::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--bs-primary);
+}
