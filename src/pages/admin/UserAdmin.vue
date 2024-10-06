@@ -132,31 +132,19 @@ export default {
             ]
         }
     },
-    watch: {
-        selectedRoles(newValue) {
-            console.log(newValue)
-        }
-    },
     methods: {
         async loadUsers() {
             this.users = await UserController.GetAll();
         },
         async loadUser(user, mode = 'save') {
             this.mode = mode
-            console.log('user: ', user)
             this.user = user
-
             this.selectedRoles = this.user.roles.map(role => this.allRoles.indexOf(role));
-
-            console.log('selectedRoles: ', this.selectedRoles)
         },
         async save() {
             const method = this.user.id ? 'put' : 'post';
             const id = this.user.id ? `/${this.user.id}` : '';
             this.user.roles = this.selectedRoles;
-             
-            console.log('user: ', this.user)
-            console.log('id: ', id)
 
             await UserController
                 .Save(method, id, this.user)
