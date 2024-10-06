@@ -251,7 +251,7 @@
   --bs-form-valid-border-color: #71dd37;
   --bs-form-invalid-color: #ff3e1d;
   --bs-form-invalid-border-color: #ff3e1d;
-  --bs-text: #384551;
+  --bs-text: #d5d5e2;
   --bs-color-icon: #d5d5e2;
   --bs-btn-hover: rgba(230, 230, 241, 0.06);
   --bs-color-hr: #4e4f6c;
@@ -2648,7 +2648,8 @@ progress {
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.375;
-  color: #384551;
+  /* color: #384551; */
+  color: var(--bs-text);
   appearance: none;
   background-color: transparent;
   background-clip: padding-box;
@@ -2668,9 +2669,9 @@ progress {
   cursor: pointer;
 }
 .form-control:focus {
-  color: #384551;
+  color: var(--bs-text);
   background-color: transparent;
-  border-color: #696cff;
+  border-color: var(--bs-primary);
   outline: 0;
   box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
 }

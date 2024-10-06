@@ -1,5 +1,5 @@
 <template>
-    <div class="article-admin">
+    <div class="article-admin mr-3">
         <h1>Artigo Componente</h1>
     </div>
 </template>

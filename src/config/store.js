@@ -10,7 +10,8 @@ Vue.use(Vuex)
         user: {
             name: 'Willian Brito',
             email: 'wbrito@aiko.digital',
-            isAdmin: true
+            isAdmin: true,
+            roles: []
         }
     },
     mutations: {
