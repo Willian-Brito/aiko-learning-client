@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style >
+<style>
     .content {
         grid-area: content;
         background-color: var(--bs-body-bg);

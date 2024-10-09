@@ -130,7 +130,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
     legend {
         font-weight: 700;

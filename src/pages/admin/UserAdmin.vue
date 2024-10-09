@@ -179,21 +179,6 @@ export default {
 }
 </script>
 
-<style>
-    table tr th {
-        font-weight: 700;
-    }
-
-    .roles {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    label {
-        color: var(--bs-text) !important;
-    }
-
-    label:not(.form-check-label) {
-        font-weight: 700;
-    }
+<style scoped>
+    
 </style>

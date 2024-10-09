@@ -4,8 +4,7 @@
  * Copyright 2011-2024 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-:root,
-[data-bs-theme=light] {
+:root {
   --bs-blue: #007bff;
   --bs-indigo: #6610f2;
   --bs-purple: #696cff;
@@ -121,6 +120,28 @@
   --bs-form-valid-border-color: #71dd37;
   --bs-form-invalid-color: #ff3e1d;
   --bs-form-invalid-border-color: #ff3e1d;
+
+  /* PAGINATION */
+  --bs-pagination-padding-x: 0.5rem;
+  --bs-pagination-padding-y: 0.4809rem;
+  --bs-pagination-font-size: 0.9375rem;
+  --bs-pagination-color: #384551;
+  --bs-pagination-bg: rgba(34, 48, 62, 0.06);
+  --bs-pagination-border-width: 1px;
+  --bs-pagination-border-color: #ced1d5;
+  --bs-pagination-border-radius: 25%;
+  --bs-pagination-hover-color: #384551;
+  --bs-pagination-hover-bg: rgba(34, 48, 62, 0.06);
+  --bs-pagination-hover-border-color: #ced1d5;
+  --bs-pagination-focus-color: #384551;
+  --bs-pagination-focus-bg: rgba(34, 48, 62, 0.06);
+  --bs-pagination-focus-box-shadow: none;
+  --bs-pagination-active-color: #fff;
+  --bs-pagination-active-bg: #696cff;
+  --bs-pagination-active-border-color: #696cff;
+  --bs-pagination-disabled-color: #384551;
+  --bs-pagination-disabled-bg: rgba(34, 48, 62, 0.06);
+  --bs-pagination-disabled-border-color: #ced1d5;
 
   --bs-btn-hover: var(--bs-border-color);
   --bs-text: #6d7378;  
@@ -252,6 +273,24 @@
   --bs-form-valid-border-color: #71dd37;
   --bs-form-invalid-color: #ff3e1d;
   --bs-form-invalid-border-color: #ff3e1d;
+
+  /* PAGINATION */
+  --bs-pagination-color: #d5d5e2;
+  --bs-pagination-bg: rgba(230, 230, 241, 0.06);    
+  --bs-pagination-border-color: #5f607b;    
+  --bs-pagination-hover-color: #d5d5e2;
+  --bs-pagination-hover-bg: rgba(230, 230, 241, 0.06);
+  --bs-pagination-hover-border-color: #5f607b;
+  --bs-pagination-focus-color: #d5d5e2;
+  --bs-pagination-focus-bg: rgba(230, 230, 241, 0.06);
+  --bs-pagination-focus-box-shadow: none;
+  --bs-pagination-active-color: #fff;
+  --bs-pagination-active-bg: #696cff;
+  --bs-pagination-active-border-color: #696cff;
+  --bs-pagination-disabled-color: #d5d5e2;
+  --bs-pagination-disabled-bg: rgba(230, 230, 241, 0.06);
+  --bs-pagination-disabled-border-color: #5f607b;
+
   --bs-text: #d5d5e2;
   --bs-color-icon: #d5d5e2;
   --bs-btn-hover: rgba(230, 230, 241, 0.06);
@@ -4735,26 +4774,6 @@ textarea.form-control-lg {
 }
 
 .pagination {
-  --bs-pagination-padding-x: 0.5rem;
-  --bs-pagination-padding-y: 0.4809rem;
-  --bs-pagination-font-size: 0.9375rem;
-  --bs-pagination-color: #384551;
-  --bs-pagination-bg: rgba(34, 48, 62, 0.06);
-  --bs-pagination-border-width: 1px;
-  --bs-pagination-border-color: #ced1d5;
-  --bs-pagination-border-radius: 50%;
-  --bs-pagination-hover-color: #384551;
-  --bs-pagination-hover-bg: rgba(34, 48, 62, 0.06);
-  --bs-pagination-hover-border-color: #ced1d5;
-  --bs-pagination-focus-color: #384551;
-  --bs-pagination-focus-bg: rgba(34, 48, 62, 0.06);
-  --bs-pagination-focus-box-shadow: none;
-  --bs-pagination-active-color: #fff;
-  --bs-pagination-active-bg: #696cff;
-  --bs-pagination-active-border-color: #696cff;
-  --bs-pagination-disabled-color: #384551;
-  --bs-pagination-disabled-bg: rgba(34, 48, 62, 0.06);
-  --bs-pagination-disabled-border-color: #ced1d5;
   display: flex;
   padding-left: 0;
   list-style: none;
@@ -4812,14 +4831,14 @@ textarea.form-control-lg {
   --bs-pagination-padding-x: 0.9826rem;
   --bs-pagination-padding-y: 0.681rem;
   --bs-pagination-font-size: 1.0625rem;
-  --bs-pagination-border-radius: 50%;
+  --bs-pagination-border-radius: 25%;
 }
 
 .pagination-sm {
   --bs-pagination-padding-x: 0.269rem;
   --bs-pagination-padding-y: 0.3165rem;
   --bs-pagination-font-size: 0.8125rem;
-  --bs-pagination-border-radius: 50%;
+  --bs-pagination-border-radius: 25%;
 }
 
 .badge {
@@ -7519,6 +7538,23 @@ a.invert-bg-dark:hover, a.invert-bg-dark:focus {
 .cell-fit {
   width: 0.1%;
   white-space: nowrap;
+}
+
+table tr th {
+  font-weight: 700;
+}
+
+.roles {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+label {
+  color: var(--bs-text) !important;
+}
+
+label:not(.form-check-label) {
+  font-weight: 700;
 }
 
 .table-secondary {

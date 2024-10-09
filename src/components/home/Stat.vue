@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .stat {
         flex: 1;
         display: flex;
