@@ -130,14 +130,5 @@ export default {
 }
 </script>
 
-<style scoped>
-
-    legend {
-        font-weight: 700;
-        color: var(--bs-text) !important;
-    }
-
-    option {
-        background-color: var(--bs-color-light);
-    }
+<style>
 </style>

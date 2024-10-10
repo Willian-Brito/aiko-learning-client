@@ -1,14 +1,11 @@
 <template>
     <div class="page-title">
-        <div class="card">
-            <h1 class="card-header page-title-card-header">
+        <div class="card page-title-box">
+            <div class="page-title-main">
                 <i v-if="icon" :class="icon"></i>
                 {{ main }}
-            </h1>
-            <!-- <hr> -->
-            <!-- <div class="card-body">
-
-            </div> -->
+            </div>
+            <div class="page-title-sub">{{ sub }}</div>
         </div>
     </div>
 </template>
@@ -31,7 +28,7 @@ export default {
     }
 
     .page-title i {
-        margin-right: 5px;
+        margin-right: 10px;
     }
 
     .page-title h2 {
@@ -44,5 +41,24 @@ export default {
         flex-direction: row;
         justify-content: center;
         align-items: center;
+    }
+
+    .page-title-box {
+        padding: 10px;
+    }
+
+    .page-title-main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+    }
+
+    .page-title-sub {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        color: var(--bs-subtitle-color);
     }
 </style>
