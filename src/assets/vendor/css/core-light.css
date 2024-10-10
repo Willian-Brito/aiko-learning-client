@@ -22,8 +22,7 @@
   --bs-gray-25: rgba(34, 48, 62, 0.025);
   --bs-gray-60: rgba(34, 48, 62, 0.06);
   --bs-gray-80: rgba(34, 48, 62, 0.08);
-  /* --bs-primary: #696cff; */
-  --bs-primary: 13,147,148;
+  --bs-primary: #696cff;  
   --bs-secondary: #8592a3;
   --bs-success: #71dd37;
   --bs-info: #03c3ec;
@@ -143,7 +142,6 @@
   --bs-pagination-disabled-bg: rgba(34, 48, 62, 0.06);
   --bs-pagination-disabled-border-color: #ced1d5;
 
-  --bs-scrollbar: var(--bs-primary);
   --bs-btn-hover: var(--bs-border-color);
   --bs-text: #6d7378;  
   --bs-color-icon: #6d7378;

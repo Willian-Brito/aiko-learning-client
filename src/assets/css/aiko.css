@@ -125,7 +125,7 @@
   
     :root::-webkit-scrollbar {
         width: 10px;
-        background: var(--bs-scrollbar) !important;
+        /* background: var(--bs-color-footer); */
     }
   
     :root::-webkit-scrollbar-track {
@@ -141,7 +141,7 @@
   div::-webkit-scrollbar {
     width: 10px;
     height: 10px;
-    background: var(--bs-color-light);
+    /* background: var(--bs-color-footer); */
   }
   
   div::-webkit-scrollbar-track {
