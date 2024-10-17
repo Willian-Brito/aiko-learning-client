@@ -12,21 +12,12 @@
 
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
-              <div class="navbar-nav align-items-center">
-                <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search bx-md"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none ps-1 ps-sm-2"
-                    placeholder="Search..."
-                    aria-label="Search..." />
-                </div>
-              </div>
+              <Search />
               <!-- /Search -->
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
 
-                <!-- Theme -->
+         
                 <div class="d-flex">
                     <div class="btn-menu" @click="openLink('https://github.com/Willian-Brito/aiko-learning-client')">
                         <i class='bx bxl-github'></i>                        
@@ -38,7 +29,8 @@
                         <i :class="currentTheme == 'light' ? 'bx bx-sun' : 'bx bx-moon'"></i>
                     </div>
                 </div>
-                <!-- /Theme -->
+
+     
 
                 <!-- User -->
                 <UserDropdown />
@@ -51,11 +43,13 @@
 
 <script>
 import UserDropdown from './UserDropdown.vue';
+import Search from './Search.vue';
+// import Theme from './Theme.vue';
 import { mapState } from 'vuex'
 
 export default {
     name: 'Header',
-    components: { UserDropdown },
+    components: { UserDropdown, Search },
     props: {
       showHeader: Boolean
     },

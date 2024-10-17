@@ -12,7 +12,8 @@ Vue.use(Vuex)
             email: 'wbrito@aiko.digital',
             isAdmin: true,
             roles: []
-        }
+        },
+        treeFilter: ''
     },
     mutations: {
         toggleMenu(state, isVisible) {
@@ -24,7 +25,15 @@ Vue.use(Vuex)
         },
         toggleTheme() {
             this.state.currentTheme = this.state.currentTheme == 'light' ? 'dark' : 'light'
+        },
+        setTreeFilter(state, filter) {
+            this.state.treeFilter = filter
         }
+    },
+    actions: {
+        updateTreeFilter({ commit }, filter) {
+            commit('setTreeFilter', filter);
+        },
     }
 })
 

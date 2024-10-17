@@ -15,6 +15,12 @@ class CategoryController {
         return categories
     }
 
+    async GetCategoriesWithTree() {
+        const response = await axios.get(`${BASE_API_URL}/category/tree`)
+        const categories = response.data.payload;
+        return categories
+    }
+
     async GetById(id) {
         const response = await axios.get(`${BASE_API_URL}/category/${id}`)
         const category = response.data.payload;        

@@ -11,39 +11,53 @@
     :style="{ 'pointer-events': disableHover ? 'none' : 'auto' }"
   >
     <div class="app-brand demo">
-        <router-link to="/" class="app-brand-link" style="cursor: pointer;">
-          <span class="app-brand-logo demo">
-            <img 
-              :src="getLogo" 
-              :style="logoStyle" alt="logo da aiko">
-          </span>
-        </router-link>
+      <router-link to="/" class="app-brand-link" style="cursor: pointer;">
+        <span class="app-brand-logo demo">
+          <img 
+            :src="getLogo" 
+            :style="logoStyle" alt="logo da aiko">
+        </span>
+      </router-link>
 
-        <a id="btn-arrow" 
-           :class="['layout-menu-toggle', 'menu-link', 'text-large', { 'arrow': close }]"
-           @click="toggleMenu"
-        >
-          <i :class="['bx', 'bxs-chevron-right', 'toggle-menu', { 'rotate': toggle }]"></i>
-        </a>
-      </div>          
+      <a id="btn-arrow" 
+          :class="['layout-menu-toggle', 'menu-link', 'text-large', { 'arrow': close }]"
+          @click="toggleMenu"
+      >
+        <i :class="['bx', 'bxs-chevron-right', 'toggle-menu', { 'rotate': toggle }]"></i>
+      </a>
+    </div>
+
+    <Tree :data="treeData" :options="treeOptions" :filter="treeFilter" ref="tree"/>
+    
+    <!-- <ul class="menu-inner py-1 ps ps--active-y">
+      <Tree :data="treeData" :options="treeOptions" ref="tree"/>
+    </ul> -->
+
   </aside>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-
+import Tree from 'liquor-tree'
+import CategoryController from '@/api/CategoryController'
 
 export default {
   name: 'Menu',
+  components: { Tree },
   data() {
     return {
       close: false,
       toggle: true,
       disableHover: false,
+      treeData: this.getTreeData(),
+      treeOptions: {
+        propertyNames: { 'text': 'name' },
+        filter: { emptyText: 'Categoria não encontrada' }
+      }
     }
   },
   computed: {
-    ...mapState(['currentTheme']),
+    ...mapState(['currentTheme', 'treeFilter']),
     logoStyle() {
       return this.close
         ? {
@@ -64,6 +78,9 @@ export default {
     }
   },
   methods: {
+    async getTreeData() {
+      return await CategoryController.GetCategoriesWithTree()
+    },
     toggleMenu() {
       this.toggle = !this.toggle
       this.close = !this.close
@@ -73,7 +90,16 @@ export default {
       setTimeout(() => {
         this.disableHover = false;
       }, 100); 
+    },
+    onNodeSelect(node) {      
+      this.$router.push({
+        name: 'articlesByCategory',
+        params: { id: node.id }
+      })
     }
+  },
+  mounted() {
+    this.$refs.tree.$on('node:selected', this.onNodeSelect)
   }
 }
 </script>
@@ -123,4 +149,44 @@ export default {
       width: 80px !important;
       height: 40px !important;
     }
+
+    .menu a,
+    .menu a:hover {
+      color: var(--bs-text);
+      text-decoration: none;
+    }
+
+    .menu .tree-node.selected > .tree-content,
+    .menu .tree-node .tree-content:hover{      
+      background-color: var(--bs-menu-tree-hover);
+    }
+
+    i.tree-arrow.has-child:after {
+      border: 1.5px solid var(--bs-text);
+      border-left: 0;
+      border-top: 0;
+    } 
+
+    .tree-filter-empty {
+      margin-left: 20px;
+    }
+
+  .tree-root {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    position: relative;
+    overflow: hidden !important;
+    overflow-anchor: none;    
+    touch-action: auto;
+
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+  }
 </style>

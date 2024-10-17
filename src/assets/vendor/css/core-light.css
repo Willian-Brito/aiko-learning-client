@@ -142,6 +142,7 @@
   --bs-pagination-disabled-bg: rgba(34, 48, 62, 0.06);
   --bs-pagination-disabled-border-color: #ced1d5;
 
+  --bs-menu-tree-hover: var(--bs-btn-hover);
   --bs-btn-hover: var(--bs-border-color);
   --bs-text: #6d7378;  
   --bs-color-icon: #6d7378;
@@ -291,6 +292,8 @@
   --bs-pagination-disabled-bg: rgba(230, 230, 241, 0.06);
   --bs-pagination-disabled-border-color: #5f607b;
 
+  /* --bs-menu-tree-hover: rgba(223, 223, 233, 0.062); */
+  --bs-menu-tree-hover: var(--bs-btn-hover);
   --bs-text: #d5d5e2;
   --bs-color-icon: #d5d5e2;
   --bs-btn-hover: rgba(230, 230, 241, 0.06);

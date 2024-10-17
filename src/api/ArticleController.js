@@ -17,6 +17,14 @@ class ArticleController {
         return articles
     }
 
+    async GetPagedByCategory(id, pageNumber = 1, pageLimit = 5) {
+        const response = await axios.get(`${BASE_API_URL}/article/category/${id}?pageNumber=${pageNumber}&pageLimit=${pageLimit}`)
+        const articles = response.data.payload;
+
+        console.log('payload: ', articles)
+        return articles
+    }
+
     async GetById(id) {
         const response = await axios.get(`${BASE_API_URL}/article/${id}`)
         const article = response.data.payload;        

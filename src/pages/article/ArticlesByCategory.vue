@@ -33,27 +33,48 @@ export default {
             loadMore: true
         }
     },
+    watch: {
+        async $route(to) {
+            this.category.id = to.params.id
+            this.articles = []
+            this.loadMore = true
+            this.page = 1
+
+            console.log('id: ', to.params.id)
+
+            await this.getCategory()
+            await this.getArticles() 
+        }
+    },
     methods: {
         async getCategory() {
             this.category = await CategoryController.GetById(this.category.id)                 
         },
         async getArticles() {
+            const categoryId = this.category.id;
+
+            console.log('id = ', categoryId)
+
             await ArticleController
-                .GetPaged(this.page)
+                .GetPagedByCategory(categoryId, this.page)
                 .then(res => {
-                    this.articles = this.articles.concat(res.items)
-                    this.page++
+                    if(res.items)
+                    {
 
-                    console.log(this.articles)
-
-                    if(res.items.length === 0) this.loadMore = false
+                        this.articles = this.articles.concat(res.items)
+                        this.page++
+    
+                        console.log(this.articles)
+    
+                        if(res.items && res.items.length === 0) this.loadMore = false
+                    }
                 })
         }
     },
     async mounted() {
         this.category.id = this.$route.params.id
         await this.getCategory()
-        await this.getArticles()        
+        await this.getArticles()
     }
 }
 </script>
