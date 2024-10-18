@@ -99,7 +99,7 @@ export default {
     }
   },
   mounted() {
-    this.$refs.tree.$on('node:selected', this.onNodeSelect)
+      this.$refs.tree.$on('node:selected', this.onNodeSelect)
   }
 }
 </script>
@@ -171,7 +171,7 @@ export default {
       margin-left: 20px;
     }
 
-  .tree-root {
+  /* .tree-root {
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
@@ -188,5 +188,5 @@ export default {
 
     padding-top: 0.25rem !important;
     padding-bottom: 0.25rem !important;
-  }
+  } */
 </style>

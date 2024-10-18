@@ -1,7 +1,7 @@
 <template>
-	<div id="app" :class="{'hide-menu': !isMenuVisible}">
-		<Header :showHeader="true"/>
-		<Menu />
+	<div id="app" :class="[{'hide-menu': !isMenuVisible || !user}, loginPage ? 'login-page' : 'application']">
+		<Header :showHeader="showHeader" />
+		<Menu v-if="user" />
 		<Content />
 		<Footer />
 	</div>
@@ -17,7 +17,7 @@ import Footer from "@/components/template/Footer"
 export default {
 	name: "App",
 	components: { Header, Menu, Content, Footer },
-	computed: mapState(['isMenuVisible'])
+	computed: mapState(['isMenuVisible', 'showHeader', 'loginPage', 'user'])
 }
 </script>
 
@@ -38,10 +38,20 @@ export default {
 		display: grid;
 		grid-template-rows: 60px 1fr 40px;
 		grid-template-columns: 300px 1fr;
+	}
+
+	#app.application {
 		grid-template-areas: 
 			"menu header"
 			"menu content"
 			"menu footer";
+	}
+
+	#app.login-page {
+		grid-template-areas: 
+			"content content"
+			"content content"
+			"footer footer";
 	}
 
 	#app.hide-menu {
