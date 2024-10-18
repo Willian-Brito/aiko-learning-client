@@ -45,6 +45,7 @@
 import UserDropdown from './UserDropdown.vue';
 import Search from './Search.vue';
 // import Theme from './Theme.vue';
+import { THEME_KEY } from '@/config/environment.js'
 import { mapState } from 'vuex'
 
 export default {
@@ -59,7 +60,15 @@ export default {
             window.open(link, '_blank');
         },
         toggleTheme() {
-            document.body.classList.toggle('dark-theme');
+            let body = document.body
+            body.classList.toggle('dark-theme');
+            
+            if(body.classList.contains('dark-theme')) {
+                localStorage.setItem(THEME_KEY, 'dark-theme');                
+            } else {
+                localStorage.setItem(THEME_KEY, 'light-theme');                
+            }
+
             this.$store.commit('toggleTheme')
         }
     }

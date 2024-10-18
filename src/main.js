@@ -10,6 +10,9 @@ Vue.config.productionTip = false
 
 new Vue({
   store,
+  created() {    
+    this.$store.commit('setThemeDefault')
+  },
   router,
   render: h => h(App)
 }).$mount('#app')

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import { THEME_KEY } from '@/config/environment.js'
 
 Vue.use(Vuex)
 
@@ -9,7 +10,7 @@ Vue.use(Vuex)
         loginPage: true,
         showHeader: false,
         isMenuVisible: false,
-        currentTheme: 'light',
+        currentTheme: null,
         user: null,
         treeFilter: ''
     },
@@ -29,8 +30,13 @@ Vue.use(Vuex)
                 state.isMenuVisible = isVisible
             }
         },
+        setThemeDefault() {
+            const theme = localStorage.getItem(THEME_KEY) || 'light-theme';
+            document.body.classList.add(theme);
+            this.state.currentTheme = theme
+        },
         toggleTheme() {
-            this.state.currentTheme = this.state.currentTheme == 'light' ? 'dark' : 'light'
+            this.state.currentTheme = this.state.currentTheme == 'light-theme' ? 'dark-theme' : 'light-theme'            
         },
         setTreeFilter(state, filter) {
             this.state.treeFilter = filter

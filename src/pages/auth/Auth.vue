@@ -7,7 +7,7 @@
                 <div class="app-brand justify-content-center">
                 <a href="index.html" class="app-brand-link gap-2">
                     <span class="app-brand-logo demo">
-                        <img src="@/assets/images/logo.png" width="120" alt="Logo da Aiko">
+                        <img :src="getLogo" width="120" alt="Logo da Aiko">
                     </span>                  
                 </a>
                 </div>
@@ -59,6 +59,7 @@
 
 <script>
 
+import { mapState } from 'vuex'
 import { showError } from '@/utils/utils.js'
 import { USER_KEY } from '@/config/environment.js'
 import AuthController from '@/api/AuthController.js'
@@ -69,6 +70,14 @@ export default {
         return {
             showLogin: false,
             user: {}
+        }
+    },
+    computed: {
+       ...mapState(['currentTheme']),
+        getLogo() {
+            return this.currentTheme == 'light-theme' 
+                ? require('@/assets/images/logo.png') 
+                : require('@/assets/images/logo-white.png')
         }
     },
     methods: {
@@ -96,6 +105,9 @@ export default {
                 })
                 .catch(showError)
         }
+    },
+    mounted() {
+        console.log('theme: ', this.currentTheme)
     }
 }
 </script>

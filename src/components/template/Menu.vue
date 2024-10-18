@@ -72,7 +72,7 @@ export default {
           };
     },
     getLogo() {
-      return this.currentTheme == 'light' 
+      return this.currentTheme == 'light-theme' 
         ? require('@/assets/images/logo.png') 
         : require('@/assets/images/logo-white.png')
     }
