@@ -11,12 +11,6 @@ Vue.use(Vuex)
         isMenuVisible: false,
         currentTheme: 'light',
         user: null,
-        // user: {
-        //     name: 'Willian Brito',
-        //     email: 'wbrito@aiko.digital',
-        //     isAdmin: true,
-        //     roles: []
-        // },
         treeFilter: ''
     },
     mutations: {
@@ -49,7 +43,7 @@ Vue.use(Vuex)
                 state.loginPage = false
                 state.isMenuVisible = true
                 state.showHeader = true
-            } else {
+            } else {                
                 delete axios.defaults.headers.common['Authorization']
                 state.loginPage = true
                 state.isMenuVisible = false

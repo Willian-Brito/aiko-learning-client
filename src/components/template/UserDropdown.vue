@@ -42,9 +42,9 @@
                     <div class="dropdown-divider my-1"></div>
                 </li>
                 <li>
-                    <router-link to="" class="dropdown-item" style="color: var(--bs-color-icon)">
+                    <a @click.prevent="logout" class="dropdown-item" style="color: var(--bs-color-icon)">
                         <i class="bx bx-power-off bx-md"></i><span>Sair</span>
-                    </router-link>
+                    </a>
                 </li>
                 </ul>
             </li> 
@@ -54,6 +54,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { USER_KEY } from '@/config/environment.js'
 import Gravatar from 'vue-gravatar'
 
 export default {
@@ -68,6 +69,11 @@ export default {
     methods: {
         showUserDropdown() {
             this.isVisible = !this.isVisible;
+        },
+        logout() {
+            localStorage.removeItem(USER_KEY)
+            this.$store.commit('setUser', null)
+            this.$router.push({ name: 'auth' })
         }
     }
 }
