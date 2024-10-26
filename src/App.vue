@@ -2,22 +2,64 @@
 	<div id="app" :class="[{'hide-menu': !isMenuVisible || !user}, loginPage ? 'login-page' : 'application']">
 		<Header :showHeader="showHeader" />
 		<Menu v-if="user" />
-		<Content />
+		<Loading v-if="validatingToken" />
+		<Content v-else />
 		<Footer />
 	</div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import { USER_KEY } from '@/config/environment.js'
+import AuthController from '@/api/AuthController.js'
 import Header from "@/components/template/Header"
 import Menu from "@/components/template/Menu"
 import Content from "@/components/template/Content"
 import Footer from "@/components/template/Footer"
+import Loading from "@/components/template/Loading"
 
 export default {
 	name: "App",
-	components: { Header, Menu, Content, Footer },
-	computed: mapState(['isMenuVisible', 'showHeader', 'loginPage', 'user'])
+	components: { Header, Menu, Content, Footer, Loading },
+	computed: mapState(['isMenuVisible', 'showHeader', 'loginPage', 'user']),
+	data() {
+		return {
+			validatingToken: true
+		}
+	},
+	methods: {
+		async validateToken() {
+			this.validatingToken = true
+
+			const json = localStorage.getItem(USER_KEY)
+			const userData = JSON.parse(json)
+			this.$store.commit('setThemeDefault')
+			this.$store.commit('setUser', null)
+
+			if(!userData) {
+				this.validatingToken = false
+				return this.$router.push({ name: 'auth' })
+			}
+
+			const response = await AuthController.ValidateToken(userData)			
+
+			if(response) {
+				this.$store.commit('setUser', userData)
+
+				if(this.$mq === 'xs' || this.$mq === 'sm') {
+					this.$store.commit('toggleMenu', false)
+				}
+			} else {
+				localStorage.removeItem(USER_KEY)
+				this.$router.push({ name: 'auth' })
+			}
+
+			this.validatingToken = false
+		}
+	},
+	created() {
+		this.validateToken()
+	}
 }
 </script>
 

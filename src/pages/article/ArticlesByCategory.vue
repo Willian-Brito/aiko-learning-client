@@ -1,6 +1,6 @@
 <template>
     <div class="articles-by-category">
-        <PageTitle icon="fa fa-folder-o" :main="category.name" sub="Categoria"/>
+        <PageTitle icon="fa fa-folder" :main="category.name" sub="Categoria"/>
 
         <div class="mt-5 p-3">
             <ul>
@@ -40,8 +40,6 @@ export default {
             this.loadMore = true
             this.page = 1
 
-            console.log('id: ', to.params.id)
-
             await this.getCategory()
             await this.getArticles() 
         }
@@ -53,8 +51,6 @@ export default {
         async getArticles() {
             const categoryId = this.category.id;
 
-            console.log('id = ', categoryId)
-
             await ArticleController
                 .GetPagedByCategory(categoryId, this.page)
                 .then(res => {
@@ -63,8 +59,6 @@ export default {
 
                         this.articles = this.articles.concat(res.items)
                         this.page++
-    
-                        console.log(this.articles)
     
                         if(res.items && res.items.length === 0) this.loadMore = false
                     }

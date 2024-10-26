@@ -1,11 +1,13 @@
 <template>
     <div class="article-by-id">
-        <PageTitle icon="fa fa-file-o" :main="article.name" :sub="article.description"/>
+        <PageTitle icon="fa fa-file" :main="article.name" :sub="article.description"/>
         <div class="card mt-5 p-5" v-html="article.content"></div>
     </div>
 </template>
 
 <script>
+import 'highlightjs/styles/dracula.css'
+import hljs from 'highlightjs/highlight.pack.js'
 import PageTitle from '@/components/template/PageTitle'
 import ArticleController from '@/api/ArticleController.js'
 
@@ -20,6 +22,11 @@ export default {
     async mounted() {
         const id = this.$route.params.id
         this.article = await ArticleController.GetById(id)        
+    },
+    updated() {
+        document.querySelectorAll('pre.ql-syntax').forEach(e => {
+            hljs.highlightBlock(e)
+        }) 
     }
 }
 </script>

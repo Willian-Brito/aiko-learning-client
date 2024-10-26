@@ -85,8 +85,7 @@ export default {
 
             await AuthController
                 .Login(this.user)
-                .then(res => {
-                    console.log('login: ', res)
+                .then(res => {                    
 
                     this.$store.commit('setUser', res)
                     localStorage.setItem(USER_KEY, JSON.stringify(res))
@@ -105,9 +104,6 @@ export default {
                 })
                 .catch(showError)
         }
-    },
-    mounted() {
-        console.log('theme: ', this.currentTheme)
     }
 }
 </script>

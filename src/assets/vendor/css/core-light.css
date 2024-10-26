@@ -593,6 +593,10 @@ textarea {
   line-height: inherit;
 }
 
+input:-webkit-autofill {
+  -webkit-text-fill-color: var(--bs-text);
+}
+
 button,
 select {
   text-transform: none;

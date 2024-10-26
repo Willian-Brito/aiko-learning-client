@@ -6,6 +6,7 @@ import AdminPages from '@/pages/admin/AdminPages'
 import ArticlesByCategory from '@/pages/article/ArticlesByCategory'
 import ArticleById from '@/pages/article/ArticleById'
 import Auth from '@/pages/auth/Auth'
+import { USER_KEY } from '@/config/environment.js'
 
 Vue.use(VueRouter)
 
@@ -18,7 +19,8 @@ const routes = [
     {
         name: 'adminPages',
         path: '/admin',
-        component: AdminPages
+        component: AdminPages,
+        meta: { requiresAdmin: true }
     },
     {
         name: 'articlesByCategory',
@@ -40,6 +42,20 @@ const routes = [
 const router = new VueRouter({
     mode: 'history',
     routes
+})
+
+router.beforeEach((to, from, next) => {
+    // TODO: implementar rota no back-end para verificar se usuário é admin auth/validateAdmin
+    const json = localStorage.getItem(USER_KEY)
+
+    if(to.matched.some(record => record.meta.requiresAdmin)) {
+        const user = JSON.parse(json)
+        const isAdmin = user.roles.includes('Administrator')
+
+        user && isAdmin ? next() : next({ path: '/' })
+    } else {
+        next()
+    }
 })
 
 export default router

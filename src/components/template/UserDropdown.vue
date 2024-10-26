@@ -20,7 +20,7 @@
                         </div>
                         <div class="flex-grow-1">
                             <h6 class="mb-0" style="color: var(--bs-color-icon)">{{ user.name }}</h6>
-                            <small class="text-muted">{{ user.isAdmin ? 'Admin' : 'Comum' }}</small>
+                            <small class="text-muted">{{ user.roles.includes('Administrator') ? 'Admin' : 'Comum' }}</small>
                         </div>
                     </div>
                 </li>
@@ -33,7 +33,7 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/admin" class="dropdown-item" style="color: var(--bs-color-icon)">
+                    <router-link to="/admin" v-if="user.roles.includes('Administrator')" class="dropdown-item" style="color: var(--bs-color-icon)">
                         <i class="bx bx-cog bx-md"></i>
                         <span>Configurações</span> 
                     </router-link>
@@ -62,7 +62,8 @@ export default {
     components: { Gravatar },
     data() {
         return {
-            isVisible: false
+            isVisible: false,
+            isAdmin: false
         }
     },
     computed: mapState(['user']),

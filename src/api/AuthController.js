@@ -20,6 +20,16 @@ class AuthController {
         const refreshToken = response.data.payload;
         return refreshToken
     }
+
+    async ValidateToken(user) {
+
+        var json = { "token": user.accessToken }
+        const response = 
+            await axios.post(`${BASE_API_URL}/auth/validateToken`, json)
+                .then(res => res.data.payload)
+                .catch(() => false)
+        return response
+    }
 }
 
 export default new AuthController();
