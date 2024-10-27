@@ -50,6 +50,13 @@
                 </b-button>
             </template>
         </b-table>
+        <b-pagination 
+            class="mt-5"
+            size="md" 
+            v-model="page" 
+            :total-rows="count"
+            :per-page="limit"
+        />
     </div>
 </template>
 
@@ -62,6 +69,9 @@ export default {
     data() {
         return {
             mode: 'save',
+            page: 1,
+            limit: 0,
+            count: 0,
             category: {
                 name: '',
                 path: '',
@@ -76,12 +86,17 @@ export default {
             ]
         }
     },
+    watch: {
+        async page() {
+            await this.loadCategories()
+        }
+    },
     methods: {
         async loadCategories() {
             await CategoryController
-                .GetCategoriesWithPath()
+                .GetCategoriesWithPath(this.page)
                 .then(res => {
-                    this.categories = res.map(category => {
+                    this.categories = res.items.map(category => {
                         return {...category, value: category.id, text: category.path}
                     })
                 })

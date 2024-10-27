@@ -9,8 +9,8 @@ class CategoryController {
         return categories
     }
 
-    async GetCategoriesWithPath() {
-        const response = await axios.get(`${BASE_API_URL}/category/path`)
+    async GetCategoriesWithPath(pageNumber = 1, pageLimit = 5) {
+        const response = await axios.get(`${BASE_API_URL}/category/path?pageNumber=${pageNumber}&pageLimit=${pageLimit}`)
         const categories = response.data.payload;
         return categories
     }

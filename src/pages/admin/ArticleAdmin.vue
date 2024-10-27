@@ -166,9 +166,9 @@ export default {
         },
         async loadCategories() {
             await CategoryController
-                .GetCategoriesWithPath()
+                .GetCategoriesWithPath(this.page)
                 .then(res => {
-                    this.categories = res.map(category => {
+                    this.categories = res.items.map(category => {
                         return {value: category.id, text: category.path}
                     })
                 })

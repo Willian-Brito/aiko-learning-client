@@ -2852,7 +2852,7 @@ textarea.form-control-lg {
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.375;
-  color: #384551;
+  color: var(--bs-text);
   appearance: none;
   background-color: transparent;
   background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
@@ -2872,6 +2872,7 @@ textarea.form-control-lg {
   border-color: var(--bs-primary);
   outline: 0;
   box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
+  /* color: var(--bs-text); */
 }
 .form-select[multiple], .form-select[size]:not([size="1"]) {
   padding-right: 0.9375rem;

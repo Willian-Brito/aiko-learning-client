@@ -99,6 +99,13 @@
                 </b-button>
             </template>
         </b-table>
+        <b-pagination 
+            class="mt-5"
+            size="md" 
+            v-model="page" 
+            :total-rows="count"
+            :per-page="limit"
+        />
     </div>
 </template>
 
@@ -112,6 +119,9 @@ export default {
         return {
             mode: 'save',
             allRoles: [],
+            page: 1,
+            limit: 0,
+            count: 0,
             user: {
                 name: '',
                 email: '',
@@ -125,16 +135,26 @@ export default {
                 { key: 'id', label: 'Código', sortable: true },
                 { key: 'name', label: 'Nome', sortable: true },
                 { key: 'email', label: 'Email', sortable: true },
-                // { key: 'roles', label: 'Perfil', class: 'badge rounded-pill  bg-label-info' ,sortable: true, 
                 { key: 'roles', label: 'Perfil', sortable: false,
                     formatter: value => value == 'Administrator' ? 'Administrador' : 'Comum' },
                 { key: 'actions', label: 'Ações' }
             ]
         }
     },
+    watch: {
+        async page() {
+            await this.loadUsers()
+        }
+    },
     methods: {
         async loadUsers() {
-            this.users = await UserController.GetAll();
+            await UserController
+                .GetPaged(this.page)
+                .then(res => {
+                    this.users = res.items
+                    this.count = res.totalCount
+                    this.limit = res.pageLimit
+                }) 
         },
         async loadUser(user, mode = 'save') {
             this.mode = mode
