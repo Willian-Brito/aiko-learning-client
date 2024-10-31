@@ -8,7 +8,7 @@
 O **Aiko Learning** é um gestor de artigos criado com o propósito de experimentar novas tecnologias e conceitos da a empresa **Aiko**. Este projeto serve para implementar provas de conceito (PoCs) que possam validar melhorias e novas funcionalidades para o projeto principal da empresa.
 
 ## 🛠️ Tecnologias Utilizadas
-- **Linguagens e Frameworks**
+- **Backend: Linguagens e Frameworks**
   - C#
   - .NET
 
@@ -22,6 +22,12 @@ O **Aiko Learning** é um gestor de artigos criado com o propósito de experimen
 
 - **Comunicação em Tempo Real**
   - SignalR
+
+- **Frontend: Linguagens e Frameworks**
+  - Html
+  - Css
+  - Javascript
+  - Vue.js
 
 - **Logs e Monitoramento**
   - Prometheus
@@ -44,18 +50,22 @@ O **Aiko Learning** é um gestor de artigos criado com o propósito de experimen
   - [ ] Chat em tempo real para suporte
 
 ## 📦 Padrões de Design Implementados
-- **SOLID**
-- **Clean Architecture**
-- **CQRS**
-  - Leitura: Dapper (MongoDB)
-  - Escrita: Entity Framework (PostgreSQL)
-- **Repository Pattern**
-- **Unit of Work**
-- **Auditoria de Dados**
-- **Global Error Handler**
-- **Paginação de APIs**
-- **Logs e Monitoramento**
-- **CI/CD Pipelines**
+- [x] SOLID
+- [x] APIs REST
+- [x] Clean Architecture
+- [x] CQRS
+  - [x] Leitura: Dapper (MongoDB)
+  - [x] Escrita: Entity Framework (PostgreSQL)
+- [x] Repository Pattern
+- [x] Unit of Work
+- [x] Auditoria de Dados
+- [x] Global Error Handler
+- [x] Paginação de APIs
+- [x] Testes Unitários
+- [ ] Testes de Integração
+- [ ] Testes e2e
+- [ ] Logs e Monitoramento
+- [ ] CI/CD Pipelines
 
 ## 🔧 Instalação
 1. **Pré-requisitos**: 
@@ -129,10 +139,34 @@ $ npm run serve
   <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/login-dark.png" alt="logo" />
 </div>
 
+ #### Registrar
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/register-dark.png" alt="registrar usuário" />
+</div>
+
  #### Home
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/home-dark.png" alt="logo" />
+  <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/home-dark.png" alt="home do sistema" />
+</div>
+
+ #### Listagem de Artigos
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/articles-dark.png" alt="listagem de artigos" />
+</div>
+
+ #### Gestão de Artigos
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/admin-articles-dark.png" alt="gestão de artigos" />
+</div>
+
+ #### Swagger: Rotas do Backend
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/swagger.png" alt="rotas do backend" />
 </div>
 
 ## 📝 Licença
