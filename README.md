@@ -1,4 +1,4 @@
-# Aiko Learning - Backend
+# Aiko Learning - Frontend
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/logo.png" alt="logo" />
@@ -130,6 +130,15 @@ $ npm run serve
 ```bash
  $  dotnet test
 ```
+**VS Code**
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/vs-code-tests.png" alt="logo" />
+</div>
+
+**Terminal**
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/terminal-tests.png" alt="logo" />
+</div>
 
 ## 🎨 Layout 
 
@@ -171,6 +180,6 @@ $ npm run serve
 
 ## 📝 Licença
 
-Este projeto esta sobe a licença [MIT](./LICENSE).
+Este projeto esta sobe a licença [MIT](https://github.com/Willian-Brito/aiko-learning-client/blob/main/LICENSE).
 
 Feito com ❤️ por Willian Brito 👋🏽 [Entre em contato!](https://www.linkedin.com/in/willian-ferreira-brito/)
