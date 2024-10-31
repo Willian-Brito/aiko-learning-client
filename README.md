@@ -1,7 +1,7 @@
 # Aiko Learning - Backend
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Willian-Brito/Kaioken-Framework/main/app/Frontend/assets/img/prints/Kaioken%20Framework.png" alt="Kaioken Framework" />
+  <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/logo.png" alt="logo" />
 </div>
 
 ## 💻 Sobre o projeto
@@ -31,6 +31,7 @@ O **Aiko Learning** é um gestor de artigos criado com o propósito de experimen
 - **Autenticação e Autorização**
   - [x] Registro de novos usuários
   - [x] Login
+  - [x] Logout
 
 - **Gestão de Conteúdo**
   - [x] Cadastro e filtragem de categorias e artigos
@@ -121,10 +122,18 @@ $ npm run serve
 ```
 
 ## 🎨 Layout 
-- Swagger
-- Telas
 
+ #### Login
 
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/login-dark.png" alt="logo" />
+</div>
+
+ #### Home
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/home-dark.png" alt="logo" />
+</div>
 
 ## 📝 Licença
 
