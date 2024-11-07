@@ -28,7 +28,7 @@
                     <div class="dropdown-divider my-1"></div>
                 </li>
                 <li>
-                    <router-link to="" class="dropdown-item" style="color: var(--bs-color-icon)">
+                    <router-link to="/profile" class="dropdown-item" style="color: var(--bs-color-icon)">
                         <i class="bx bx-user bx-md"></i><span>Perfil</span>
                     </router-link>
                 </li>

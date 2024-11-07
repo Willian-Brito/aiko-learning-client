@@ -20,9 +20,7 @@
   height: 1px;
   transition: all 0.3s ease-in-out;
 }
-.layout-wrapper:not(.layout-horizontal) .bg-menu-theme .menu-inner .menu-item .menu-link {
-  border-radius: 0.375rem;
-}
+
 .layout-horizontal .bg-menu-theme .menu-inner > .menu-item > .menu-link {
   border-radius: 0.375rem;
 }
@@ -786,8 +784,9 @@ html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-lin
   color: #696cff;
 }
 .bg-menu-theme .menu-inner > .menu-item.active > .menu-link {
-  color: #696cff;
+  color: #696cff !important;
   background-color: rgba(105, 108, 255, 0.16) !important;
+  border-radius: 0.375rem;
 }
 .bg-menu-theme .menu-inner > .menu-item.active:before {
   background: #696cff;

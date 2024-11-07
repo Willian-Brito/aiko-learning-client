@@ -6,7 +6,7 @@ class UserController {
     async GetPaged(pageNumber = 1, pageLimit = 5) {
         const response = await axios.get(`${BASE_API_URL}/user/paged?pageNumber=${pageNumber}&pageLimit=${pageLimit}`)
         const users = response.data.payload;
-        
+
         return users
     }
 

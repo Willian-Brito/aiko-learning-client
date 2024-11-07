@@ -6,6 +6,7 @@ import AdminPages from '@/pages/admin/AdminPages'
 import ArticlesByCategory from '@/pages/article/ArticlesByCategory'
 import ArticleById from '@/pages/article/ArticleById'
 import Auth from '@/pages/auth/Auth'
+import Profile from '@/pages/profile/Profile'
 import { USER_KEY } from '@/config/environment.js'
 
 Vue.use(VueRouter)
@@ -36,6 +37,11 @@ const routes = [
         name: 'auth',
         path: '/auth',
         component: Auth
+    },
+    {
+        name: 'profile',
+        path: '/profile',
+        component: Profile
     }
 ]
 
