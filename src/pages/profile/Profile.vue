@@ -133,9 +133,6 @@ export default {
                 roles: this.selectedRoles
             }
 
-            console.log('path: ', path)
-            console.log('user: ', user)
-
             await UserController
                 .Save('put', path, user)
                 .then(() => {
