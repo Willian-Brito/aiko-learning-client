@@ -121,7 +121,7 @@ export default {
 
        visibility: hidden;
        opacity: 0;   
-       transition: visibility 0s, opacity 0.5s linear;
+       transition: visibility 0s, opacity 0.3s linear;
     }
 
     .user-dropdown-content.show {

@@ -142,6 +142,7 @@
   --bs-pagination-disabled-bg: rgba(34, 48, 62, 0.06);
   --bs-pagination-disabled-border-color: #ced1d5;
 
+  --bs-menu-sub-border-color: #e7e7ff;
   --bs-menu-tree-hover: var(--bs-btn-hover);
   --bs-btn-hover: var(--bs-border-color);
   --bs-text: #6d7378;  
@@ -293,6 +294,7 @@
   --bs-pagination-disabled-border-color: #5f607b;
 
   /* --bs-menu-tree-hover: rgba(223, 223, 233, 0.062); */
+  --bs-menu-sub-border-color: #35365f;
   --bs-menu-tree-hover: var(--bs-btn-hover);
   --bs-text: #d5d5e2;
   --bs-color-icon: #d5d5e2;
@@ -720,6 +722,59 @@ summary {
 progress {
   vertical-align: baseline;
 }
+
+
+/*
+=================
+      MENU
+=================
+*/
+
+
+/* Esconder texto quando o menu está contraído */
+#layout-menu.collapsed .text-truncate {
+  display: none;
+}
+
+#layout-menu.collapsed .menu-inner > .menu-item.active > .menu-link {
+  width: 60px !important;  
+}
+
+#layout-menu.collapsed:hover .menu-inner > .menu-item.active > .menu-link {
+  width: 270px !important;  
+}
+
+.none {
+  display: none !important;
+}
+
+#layout-menu.collapsed span.rounded-pill {
+  display: none;
+}
+
+#layout-menu.collapsed .app-brand .layout-menu-toggle{
+  margin-left: 0px;
+}
+
+/* Mostrar o texto apenas ao passar o mouse */
+#layout-menu.collapsed:hover .text-truncate {
+  display: block;
+}
+
+#layout-menu.collapsed:hover .menu-sub {
+  display: block !important;
+}
+
+#layout-menu.collapsed:hover .rounded-pill {
+  display: block !important;
+}
+
+/* Transição de expansão suave */
+#layout-menu.collapsed:hover {
+  width: 300px;
+}
+
+/*=======================*/
 
 [hidden] {
   display: none !important;
@@ -22318,8 +22373,7 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
 .menu-vertical,
 .menu-vertical .menu-block,
 .menu-vertical .menu-inner > .menu-item,
-.menu-vertical .menu-inner > .menu-header {
-  /* width: 16.25rem; */
+.menu-vertical .menu-inner > .menu-header {  
   width: 300px;
 }
 .menu-vertical .menu-inner {
@@ -22355,8 +22409,19 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
 }
 .menu-vertical .menu-item .menu-toggle::after {
   inset-inline-end: 0.8rem;
+  color: var(--bs-color-card-text);
 }
 .menu-vertical .menu-item.open:not(.menu-item-closing) > .menu-link:after {
+  transform: translateY(-50%) rotate(90deg);
+  color: var(--bs-white);
+}
+.menu-vertical .menu-item.active:not(.menu-item-closing) > .menu-link:after {  
+  color: var(--bs-white);
+}
+.menu-vertical .menu-item.active:not(.menu-item-closing) > .menu-link.hide-after::after {
+  display: none;
+}
+.menu-vertical .menu-item.open:not(.menu-item-closing) > div > .menu-link:after {
   transform: translateY(-50%) rotate(90deg);
 }
 .menu-vertical .menu-sub .menu-link {

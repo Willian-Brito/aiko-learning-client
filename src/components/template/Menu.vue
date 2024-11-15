@@ -6,7 +6,7 @@
       'menu-vertical',
       'menu',
       'bg-menu-theme',
-      { 'close': close}
+      { 'close collapsed': close}
     ]" 
     :style="{ 'pointer-events': disableHover ? 'none' : 'auto' }"
   >
@@ -29,112 +29,21 @@
 
     <div class="menu-inner-shadow" style="display: block;"></div>
 
-    <!-- <Tree :data="treeData" :options="treeOptions" :filter="treeFilter" ref="tree"/> -->
-    
-    <!-- <ul class="menu-inner py-1 ps ps--active-y">
-      <Tree :data="treeData" :options="treeOptions" ref="tree"/>
-    </ul> -->
-
     <div role="tree" class="tree">
       <ul class="menu-inner py-1 ps ps--active-y">
-        <li class="menu-item active open" style="">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <i class="menu-icon tf-icons bx bx-home-smile"></i>
-              <div class="text-truncate" data-i18n="Dashboards">Dashboards</div>
-              <span class="badge rounded-pill bg-danger ms-auto">5</span>
-            </a>
-            <ul class="menu-sub">
-              <li class="menu-item active">
-                <a href="index.html" class="menu-link">
-                  <div class="text-truncate" data-i18n="Analytics">Analytics</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/dashboards-crm.html" target="_blank" class="menu-link">
-                  <div class="text-truncate" data-i18n="CRM">CRM</div>
-                  <div class="badge rounded-pill bg-label-primary text-uppercase fs-tiny ms-auto">Pro</div>
-                </a>
-              </li>
-              <Tree :data="treeData" :options="treeOptions" :filter="treeFilter" ref="tree"/>
-            </ul>
-          </li>
-  
-          <li class="menu-item active">
-            <a class="menu-link">
-              <i class="menu-icon tf-icons bx bx-collection"></i>
-              <div class="text-truncate" data-i18n="Basic">Cards</div>
-              
-            </a>
-          </li>
+        <li :class="['menu-item', 'active', {'open': toggleArrow }]">
+          <a class="menu-link menu-toggle" @click="open">
+            <i class="menu-icon tf-icons bx bx-collection" style="margin-left: 5px;"></i>
+            <div class="text-truncate">Categorias</div>
+            <span class="badge rounded-pill bg-danger ms-auto">{{ totalNodes }}</span>
+          </a>
+            
+          <ul class="menu-sub">              
+            <Tree :nodes="treeData" :filter="treeFilter" ref="tree" @node-selected="onNodeSelect" />      
+            <!-- <Tree :data="treeData2" :options="treeOptions" :filter="treeFilter" ref="tree"/> -->
+          </ul>
+        </li>
        </ul>
-
-    </div>
-
-
-    <div role="tree" class="tree">
-      <ul class="tree-root">
-          <li class="tree-node has-child expanded selected">
-            <div class="tree-content" style="padding-left: 0px;">
-                <i class="tree-arrow expanded has-child"></i> <!----> <a href="javascript:void(0)" tabindex="1" class="tree-anchor"><span>Back-End</span></a>
-            </div>
-            <ul class="tree-children">
-                <li class="tree-node">
-                  <div class="tree-content" style="padding-left: 24px;">
-                      <i class="tree-arrow"></i> <!----> <a href="javascript:void(0)" tabindex="1" class="tree-anchor"><span>Linguagem</span></a>
-                  </div>
-                  <!---->
-                </li>
-                <li class="tree-node">
-                  <div class="tree-content" style="padding-left: 24px;">
-                      <i class="tree-arrow"></i> <!----> <a href="javascript:void(0)" tabindex="1" class="tree-anchor"><span>Banco de Dados</span></a>
-                  </div>
-                  <!---->
-                </li>
-                <li class="tree-node">
-                  <div class="tree-content" style="padding-left: 24px;">
-                      <i class="tree-arrow"></i> <!----> <a href="javascript:void(0)" tabindex="1" class="tree-anchor"><span>Linguagem</span></a>
-                  </div>
-                  <!---->
-                </li>
-                <li class="tree-node">
-                  <div class="tree-content" style="padding-left: 24px;">
-                      <i class="tree-arrow"></i> <!----> <a href="javascript:void(0)" tabindex="1" class="tree-anchor"><span>Lógica de Programação</span></a>
-                  </div>
-                  <!---->
-                </li>
-                <li class="tree-node">
-                  <div class="tree-content" style="padding-left: 24px;">
-                      <i class="tree-arrow"></i> <!----> <a href="javascript:void(0)" tabindex="1" class="tree-anchor"><span>Design Patterns</span></a>
-                  </div>
-                  <!---->
-                </li>
-                <li class="tree-node">
-                  <div class="tree-content" style="padding-left: 24px;">
-                      <i class="tree-arrow"></i> <!----> <a href="javascript:void(0)" tabindex="1" class="tree-anchor"><span>Testes Automátizados</span></a>
-                  </div>
-                  <!---->
-                </li>
-                <li class="tree-node">
-                  <div class="tree-content" style="padding-left: 24px;">
-                      <i class="tree-arrow"></i> <!----> <a href="javascript:void(0)" tabindex="1" class="tree-anchor"><span>Arquitetura</span></a>
-                  </div>
-                  <!---->
-                </li>
-            </ul>
-          </li>
-          <li class="tree-node has-child">
-            <div class="tree-content" style="padding-left: 0px;">
-                <i class="tree-arrow has-child"></i> <!----> <a href="javascript:void(0)" tabindex="1" class="tree-anchor"><span>Front-End</span></a>
-            </div>
-            <!---->
-          </li>
-          <li class="tree-node has-child">
-            <div class="tree-content" style="padding-left: 0px;">
-                <i class="tree-arrow has-child"></i> <!----> <a href="javascript:void(0)" tabindex="1" class="tree-anchor"><span>Mobile</span></a>
-            </div>
-            <!---->
-          </li>
-      </ul>
     </div>
 
   </aside>
@@ -142,7 +51,8 @@
 
 <script>
 import { mapState } from 'vuex'
-import Tree from 'liquor-tree'
+// import Tree from 'liquor-tree'
+import Tree from '@/components/tree/Tree.vue'
 import CategoryController from '@/api/CategoryController'
 
 export default {
@@ -153,7 +63,10 @@ export default {
       close: false,
       toggle: true,
       disableHover: false,
-      treeData: this.getTreeData(),
+      toggleArrow: true,
+      totalNodes: 0,
+      // treeData2: this.getTreeData2(),
+      treeData: [],
       treeOptions: {
         propertyNames: { 'text': 'name' },
         filter: { emptyText: 'Categoria não encontrada' }
@@ -183,19 +96,52 @@ export default {
   },
   methods: {
     async getTreeData() {
+      const tree = await CategoryController.GetCategoriesWithTree()
+      this.addExpandedAttribute(tree)   
+      this.totalNodes =  this.countNodes(tree) 
+      return tree      
+    },
+    open() {
+      this.toggleArrow = !this.toggleArrow      
+    },
+    countNodes(nodes) {      
+      if (!nodes || nodes.length === 0) return 0;      
+      let count = nodes.length;
+      
+      nodes.forEach(node => {
+        if (node.children && node.children.length > 0) {
+          count += this.countNodes(node.children);
+        }
+      });
+
+      return count;
+    },
+    async getTreeData2() {
       return await CategoryController.GetCategoriesWithTree()
     },
     toggleMenu() {
       this.toggle = !this.toggle
       this.close = !this.close
       this.disableHover = true
-      this.$store.commit('toggleMenu')
+      this.$store.commit('toggleMenu')      
+
+      const subMenu = document.getElementsByClassName('menu-sub')
+      const arrow = document.querySelector(".menu-vertical .menu-item.active:not(.menu-item-closing) > .menu-link")
+      
+      if(this.close) {
+        subMenu[0].classList.add("none");
+        arrow.classList.add("hide-after");        
+      } else {
+        subMenu[0].classList.remove("none");
+        arrow.classList.remove("hide-after");        
+      }
 
       setTimeout(() => {
         this.disableHover = false;
       }, 100); 
     },
-    onNodeSelect(node) {      
+    onNodeSelect(node) {
+
       this.$router.push({
         name: 'articlesByCategory',
         params: { id: node.id }
@@ -205,46 +151,21 @@ export default {
         this.$store.commit('toggleMenu', false)
       }
     },
-    teste() {
-      // Seleciona todos os elementos <li> com a classe "tree-node"
-      const treeNodes = document.querySelectorAll('.tree-node');
+    addExpandedAttribute(nodes) {
 
-      treeNodes.forEach(treeNode => {
-          // Encontra o <ul class="menu-sub"> mais próximo
-          const menuSub = treeNode.closest('ul.menu-sub');
-          
-          if (menuSub) {
-              // Cria a nova estrutura <li> com as classes e conteúdo desejados
-              const newMenuItem = document.createElement('li');
-              newMenuItem.className = 'menu-item';
+      if (!Array.isArray(nodes)) return;
 
-              const anchor = document.createElement('a');
-              anchor.href = 'javascript:void(0);';
-              anchor.className = 'menu-link menu-toggle';
-
-              const textContainer = document.createElement('div');
-              textContainer.className = 'text-truncate';
-
-              // Pega o texto do elemento <span> dentro do .tree-anchor e define no novo elemento
-              const spanText = treeNode.querySelector('.tree-anchor span').textContent;
-              textContainer.textContent = spanText;
-
-              // Adiciona textContainer dentro do link, e o link dentro do item <li>
-              anchor.appendChild(textContainer);
-              newMenuItem.appendChild(anchor);
-
-              // Adiciona o novo item <li> ao <ul class="menu-sub"> mais próximo
-              menuSub.appendChild(newMenuItem);
-
-              // Remove o elemento original
-              treeNode.remove();
-          }
+      nodes.forEach(node => {                
+        node.expanded = false;
+        
+        if (node.children && Array.isArray(node.children) && node.children.length > 0) {
+          this.addExpandedAttribute(node.children);
+        }
       });
-
     }
   },
-  mounted() {
-      this.$refs.tree.$on('node:selected', this.onNodeSelect)
+  async mounted() {    
+      this.treeData = await this.getTreeData()
   }
 }
 </script>
@@ -274,7 +195,7 @@ export default {
     }
 
     .close {
-      width: 100px ! important;
+      width: 95px ! important;
     }
 
     .arrow {
@@ -316,22 +237,8 @@ export default {
       margin-left: 20px;
     }
 
-  /* .tree-root {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-    align-items: flex-start;
-    justify-content: flex-start;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-
-    position: relative;
-    overflow: hidden !important;
-    overflow-anchor: none;    
-    touch-action: auto;
-
-    padding-top: 0.25rem !important;
-    padding-bottom: 0.25rem !important;
-  } */
+    .menu-item .active {
+      margin-top: 10px;
+      cursor: pointer;
+    }
 </style>
