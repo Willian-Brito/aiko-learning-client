@@ -31,17 +31,17 @@ export default {
         flex: 1;
         display: flex;
         border-radius: var(--bs-border-radius);
-        margin: 20px 0;
+        margin: 20px 5px;
         background-color: var(--bs-color-light);
         padding: 20px;
         border: 1px solid var(--bs-border-color);
         box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
     }
 
-    .stat:nth-child(2) {
+    /* .stat:nth-child(2) {
         margin-right: 20px;
         margin-left: 20px;
-    }
+    } */
 
     .stat-icon {
         display: flex;

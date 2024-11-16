@@ -24,7 +24,8 @@ export default {
 	computed: mapState(['isMenuVisible', 'showHeader', 'loginPage', 'user']),
 	data() {
 		return {
-			validatingToken: true
+			validatingToken: true,
+			isMobile: false
 		}
 	},
 	methods: {
@@ -55,11 +56,27 @@ export default {
 			}
 
 			this.validatingToken = false
-		}
+		},
+		checkScreenWidth() {
+
+			this.isMobile = window.innerWidth < 1200;
+			this.$store.commit('setMobile', this.isMobile)
+			
+			if (this.isMobile) {
+				document.documentElement.classList.add('layout-navbar-fixed', 'layout-compact', 'dark-style', 'layout-menu-fixed');
+			} else {
+				document.documentElement.classList.remove('layout-navbar-fixed', 'layout-compact', 'dark-style', 'layout-menu-fixed');
+			}
+		},
 	},
-	created() {
-		this.validateToken()
-	}
+	async mounted() {		
+		await this.validateToken()
+		this.checkScreenWidth();
+		window.addEventListener('resize', this.checkScreenWidth);
+	},
+	beforeDestroy() {
+		window.removeEventListener('resize', this.checkScreenWidth);
+	},
 }
 </script>
 

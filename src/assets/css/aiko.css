@@ -9,6 +9,7 @@
     align-items: center;
     height: 64px;
     margin-top: 12px;
+    margin-bottom: 15px;
   }
 
   /* ! For .layout-navbar-fixed added fix padding top to .layout-page */

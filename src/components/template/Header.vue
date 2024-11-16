@@ -4,10 +4,12 @@
             class="layout-navbar navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
             id="layout-navbar"
         >
-            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none">
-              <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0)">
+            <div 
+                class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none" 
+                @click="showMenu"
+                style="cursor: pointer;"
+            >
                 <i class="bx bx-menu bx-md"></i>
-              </a>
             </div>
 
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
@@ -15,9 +17,9 @@
               <Search />
               <!-- /Search -->
 
+              <!-- Botões -->
               <ul class="navbar-nav flex-row align-items-center ms-auto">
 
-         
                 <div class="d-flex">
                     <div class="btn-menu" @click="openLink('https://github.com/Willian-Brito/aiko-learning-client')">
                         <i class='bx bxl-github'></i>                        
@@ -28,9 +30,8 @@
                     <div class="btn-menu" @click="toggleTheme">
                         <i :class="currentTheme == 'light' ? 'bx bx-sun' : 'bx bx-moon'"></i>
                     </div>
-                </div>
-
-     
+                </div>    
+                <!--/ Botões --> 
 
                 <!-- User -->
                 <UserDropdown />
@@ -54,6 +55,11 @@ export default {
     props: {
       showHeader: Boolean
     },
+    data() {
+        return {
+            openMenu: false
+        }
+    },
     computed: mapState(['currentTheme']),
     methods: {
         openLink(link) {
@@ -64,12 +70,15 @@ export default {
             body.classList.toggle('dark-theme');
             
             if(body.classList.contains('dark-theme')) {
-                localStorage.setItem(THEME_KEY, 'dark-theme');                
+                localStorage.setItem(THEME_KEY, 'dark-theme');
             } else {
                 localStorage.setItem(THEME_KEY, 'light-theme');                
             }
 
             this.$store.commit('toggleTheme')
+        },
+        showMenu() {
+            document.documentElement.classList.toggle('layout-menu-expanded');
         }
     }
 }

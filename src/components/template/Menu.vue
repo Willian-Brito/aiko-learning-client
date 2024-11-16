@@ -74,7 +74,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['currentTheme', 'treeFilter']),
+    ...mapState(['currentTheme', 'treeFilter', 'isMobile']),
     logoStyle() {
       return this.close
         ? {
@@ -101,7 +101,7 @@ export default {
       this.totalNodes =  this.countNodes(tree) 
       return tree      
     },
-    open() {
+    open() {      
       this.toggleArrow = !this.toggleArrow      
     },
     countNodes(nodes) {      
@@ -120,6 +120,15 @@ export default {
       return await CategoryController.GetCategoriesWithTree()
     },
     toggleMenu() {
+
+      if(this.isMobile)
+      {
+        document.documentElement.classList.toggle('layout-menu-expanded');
+        return
+      }
+
+      document.documentElement.classList.remove('layout-menu-expanded');
+
       this.toggle = !this.toggle
       this.close = !this.close
       this.disableHover = true

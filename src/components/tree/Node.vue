@@ -45,7 +45,7 @@
         subMenuItems.forEach(item => item.classList.remove('active'));
         
         this.isActive = true
-        this.$emit("node-selected", this.node);
+        this.$emit("node-selected", this.node); 
         this.$emit("toggle", this.node.id);
       }
     },

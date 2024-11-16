@@ -10,6 +10,7 @@ Vue.use(Vuex)
         loginPage: true,
         showHeader: false,
         isMenuVisible: false,
+        isMobile: false,
         currentTheme: null,
         user: null,
         treeFilter: ''
@@ -30,6 +31,9 @@ Vue.use(Vuex)
                 state.isMenuVisible = isVisible
             }
         },
+        setMobile(state, isMobile) {
+            state.isMobile = isMobile
+        },
         setThemeDefault() {
             const theme = localStorage.getItem(THEME_KEY) || 'light-theme';
             document.body.classList.add(theme);
@@ -39,7 +43,7 @@ Vue.use(Vuex)
             this.state.currentTheme = this.state.currentTheme == 'light-theme' ? 'dark-theme' : 'light-theme'            
         },
         setTreeFilter(state, filter) {
-            this.state.treeFilter = filter
+            state.treeFilter = filter
         },
         setUser(state, user) {
             state.user = user
