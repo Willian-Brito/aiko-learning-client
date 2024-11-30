@@ -54,7 +54,7 @@
                             class="form-select"
                             id="article-categoryId" 
                             v-model="article.categoryId" 
-                            :options="categories" 
+                            :options="selectCategories" 
                             :disabled="mode == 'remove'"
                         />
                     </b-form-group>
@@ -137,6 +137,7 @@ export default {
             },
             articles: [],
             categories: [],
+            selectCategories: [],
             users: [],
             page: 1,
             limit: 0,
@@ -170,6 +171,15 @@ export default {
                 .then(res => {
                     this.categories = res.items.map(category => {
                         return {value: category.id, text: category.path}
+                    })
+                })
+        },
+        async loadSelectCategories() {
+            await CategoryController
+                .GetCategoriesWithPath(this.page, 100)
+                .then(res => {
+                    this.selectCategories = res.items.map(category => {
+                        return {...category, value: category.id, text: category.path}
                     })
                 })
         },
@@ -217,6 +227,7 @@ export default {
     },
     async mounted() {
         await this.loadCategories();
+        await this.loadSelectCategories();
         await this.loadUsers();
         await this.loadArticles();
 

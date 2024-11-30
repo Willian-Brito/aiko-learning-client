@@ -27,6 +27,10 @@ export default {
         document.querySelectorAll('pre.ql-syntax').forEach(e => {
             hljs.highlightBlock(e)
         }) 
+
+        document.querySelectorAll('pre[spellcheck]').forEach(e => {
+            hljs.highlightBlock(e)
+        }) 
     }
 }
 </script>
