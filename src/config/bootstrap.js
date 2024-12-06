@@ -9,6 +9,7 @@ import '@/assets/vendor/css/theme-light.css'
 import '@/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css'
 import '@/assets/vendor/fonts/boxicons.css'
 import '@/assets/css/aiko.css'
+import '@/assets/css/chat.css'
 
 
 // import 'bootstrap/dist/css/bootstrap.css'

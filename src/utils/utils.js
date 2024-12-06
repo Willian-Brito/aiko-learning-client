@@ -13,4 +13,23 @@ export function showError(e) {
     }
 }
 
-export default { showError }
+export function formatDate(date) {
+    const dateISO = new Date(date);
+
+    const options = {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",  
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+    };
+
+    const format = new Intl.DateTimeFormat("pt-BR", options);
+    const dateBR = format.format(dateISO).replace(",", "");
+
+    return dateBR;
+}
+
+export default { showError, formatDate }

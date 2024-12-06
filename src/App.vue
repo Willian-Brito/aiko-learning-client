@@ -4,7 +4,8 @@
 		<Menu v-if="user" />
 		<Loading v-if="validatingToken" />
 		<Content v-else />
-		<Footer />
+		<Chat v-if="!loginPage"/>
+		<Footer />		
 	</div>
 </template>
 
@@ -16,11 +17,12 @@ import Header from "@/components/template/Header"
 import Menu from "@/components/template/Menu"
 import Content from "@/components/template/Content"
 import Footer from "@/components/template/Footer"
+import Chat from "@/components/chat/Chat"
 import Loading from "@/components/template/Loading"
 
 export default {
 	name: "App",
-	components: { Header, Menu, Content, Footer, Loading },
+	components: { Header, Menu, Content, Footer, Loading, Chat },
 	computed: mapState(['isMenuVisible', 'showHeader', 'loginPage', 'user']),
 	data() {
 		return {

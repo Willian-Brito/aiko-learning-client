@@ -67,11 +67,17 @@ export default {
         },
         toggleTheme() {
             let body = document.body
-            body.classList.toggle('dark-theme');
+            // body.classList.toggle('dark-theme');
             
-            if(body.classList.contains('dark-theme')) {
+            if(body.classList.contains('light-theme')) {   
+
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
                 localStorage.setItem(THEME_KEY, 'dark-theme');
             } else {
+
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
                 localStorage.setItem(THEME_KEY, 'light-theme');                
             }
 
