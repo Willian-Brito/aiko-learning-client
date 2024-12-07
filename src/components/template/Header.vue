@@ -28,7 +28,7 @@
                         <i class='bx bx-bell'></i>
                     </div>
                     <div class="btn-menu" @click="toggleTheme">
-                        <i :class="currentTheme == 'light' ? 'bx bx-sun' : 'bx bx-moon'"></i>
+                        <i :class="currentTheme == 'light-theme' ? 'bx bx-sun' : 'bx bx-moon'"></i>
                     </div>
                 </div>    
                 <!--/ Botões --> 
