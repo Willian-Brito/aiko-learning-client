@@ -189,6 +189,11 @@ $ npm run serve
   <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/admin-articles-dark.png" alt="gestão de artigos" />
 </div>
 
+#### Chat
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/chat-dark.png" alt="chat em tempo real" />
+</div>
+
 #### Swagger: Rotas do Backend
 
 <div align="center">
