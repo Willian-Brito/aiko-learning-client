@@ -1,4 +1,4 @@
-# Aiko Learning - Backend
+# Aiko Learning - Frontend
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/Willian-Brito/aiko-learning-client/refs/heads/main/src/assets/prints/logo.png" alt="logo" />
@@ -70,8 +70,10 @@ O **Aiko Learning** é um gestor de artigos criado com o propósito de experimen
 - [x] Testes Unitários
 - [ ] Testes de Integração
 - [ ] Testes e2e
+- [ ] Rate Limiting
 - [ ] Logs e Monitoramento
 - [ ] CI/CD Pipelines
+- [ ] Análise de Vulnerabilidades (SAST/DAST/SCA)
 
 ## 🔧 Instalação
 1. **Pré-requisitos**: 
