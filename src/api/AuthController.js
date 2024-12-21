@@ -28,6 +28,7 @@ class AuthController {
             await axios.post(`${BASE_API_URL}/auth/validateToken`, json)
                 .then(res => res.data.payload)
                 .catch(() => false)
+                // .catch(err => err.response.status === 429 ?  true : false)
         return response
     }
 }
