@@ -86,8 +86,7 @@
 
 .app-brand .layout-menu-toggle {
   position: absolute;
-  inset-inline-start: 17.2rem;
-  /* inset-inline-start: 15.2rem; */
+  inset-inline-start: var(--bs-width-toggle-menu);
   border-radius: 50%;
   opacity: 1;
   z-index: 3;
@@ -867,7 +866,6 @@ html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-lin
 .app-brand .layout-menu-toggle {
   background-color: #696cff;
   border: 7px solid var(--bs-body-bg);
-  margin-left: 10px;
 }
 .app-brand .layout-menu-toggle i {
   color: #fff;

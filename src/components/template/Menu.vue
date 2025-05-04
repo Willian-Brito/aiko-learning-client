@@ -65,7 +65,6 @@ export default {
       disableHover: false,
       toggleArrow: true,
       totalNodes: 0,
-      // treeData2: this.getTreeData2(),
       treeData: [],
       treeOptions: {
         propertyNames: { 'text': 'name' },
@@ -115,9 +114,6 @@ export default {
       });
 
       return count;
-    },
-    async getTreeData2() {
-      return await CategoryController.GetCategoriesWithTree()
     },
     toggleMenu() {
 
@@ -217,7 +213,7 @@ export default {
     }
 
     .layout-menu.menu-vertical.menu.bg-menu-theme.close:hover .arrow{
-      inset-inline-start: 17.2rem !important;
+      inset-inline-start: var(--bs-width-toggle-menu) !important;
     }
 
     .layout-menu.menu-vertical.menu.bg-menu-theme.close:hover .app-brand .demo img{

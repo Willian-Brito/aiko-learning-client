@@ -168,9 +168,9 @@ export default {
 
             await UserController
                 .Save(method, id, this.user)
-                .then(() => {
+                .then(async () => {
                     this.$toasted.global.defaultSuccess();
-                    this.reset();
+                    await this.reset();
                 })
                 .catch(showError);
         },
@@ -179,17 +179,17 @@ export default {
 
             await UserController
                 .Delete(id)
-                .then(() => {
+                .then(async () => {
                     this.$toasted.global.defaultSuccess();
-                    this.reset();
+                    await this.reset();
                 })
                 .catch(showError);
         },
-        reset() {
+        async reset() {
             this.mode = 'save';
             this.user = { roles: [] };
             this.selectedRoles = []
-            this.loadUsers();
+            await this.loadUsers();
         }
     },
     async mounted() {

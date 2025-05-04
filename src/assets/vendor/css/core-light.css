@@ -66,8 +66,9 @@
   --bs-light-border-subtle: rgba(34, 48, 62, 0.12);
   --bs-dark-border-subtle: rgba(34, 48, 62, 0.5);
   --bs-bg-label-tint-amount: 84%;
-  --bs-width-menu-vertical: 300px;
-  /* --bs-width-menu-vertical: 260px; */
+  --bs-width-toggle-menu: 15.2rem;
+  --bs-width-menu-vertical: 260px;
+  --bs-width-menu-vertical-selected: 228px;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 34, 48, 62;
   --bs-font-sans-serif: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -766,7 +767,7 @@ progress {
 }
 
 #layout-menu.collapsed:hover .menu-inner > .menu-item.active > .menu-link {
-  width: 270px !important;  
+  width: var(--bs-width-menu-vertical-selected) !important;  
 }
 
 .none {
@@ -22296,6 +22297,9 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow-x: hidden !important;
+  width: 98%;
+
 }
 
 .menu-inner-shadow {
@@ -22433,10 +22437,33 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
 .menu-vertical .menu-inner > .menu-header {  
   width: var(--bs-width-menu-vertical);
 }
+
+/* SCROLLBAR DO MENU VERTICAL */
 .menu-vertical .menu-inner {
+  overflow-y: auto;
+  max-height: 80vh; 
   flex-direction: column;
   flex: 1 1 auto;
 }
+
+.menu-inner::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  margin-right: 50px;
+  /* background: var(--bs-color-footer); */
+}
+
+.menu-inner::-webkit-scrollbar-track {
+  /* background: rgba(0,0,0,0.1); */
+  background: transparent;
+}
+
+.menu-inner::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  /* background: var(--bs-primary); */
+  background: rgba(34, 48, 62, 0.08);
+}
+
 .menu-vertical .menu-inner > .menu-item {
   margin: 0.125rem 0;
 }
@@ -22695,11 +22722,11 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
   background-color: transparent;
 }
 .layout-navbar.navbar-detached {
-  /* box-shadow: 0 0.125rem 0.375rem 0 rgba(34, 48, 62, 0.08); */
   box-shadow: 0 .125rem .375rem 0 rgba(20,20,29,.2);
   width: calc(100% - 1.625rem * 2);
   margin: 1rem auto 0;
-  /* border-radius: 0.375rem; */
+  /* width: calc(100% - 0.4rem * 2);
+  margin: 1rem 1rem 1rem 0; */
   border-radius: 10px;
   padding: 0 1.5rem;
 }

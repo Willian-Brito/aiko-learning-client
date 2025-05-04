@@ -98,7 +98,7 @@ export default {
 		height: 100vh;
 		display: grid;
 		grid-template-rows: 60px 1fr 40px;
-		grid-template-columns: 300px 1fr;
+		grid-template-columns: var(--bs-width-menu-vertical) 1fr;
 	}
 
 	#app.application {

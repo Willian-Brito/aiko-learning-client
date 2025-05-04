@@ -9,6 +9,7 @@ export function showError(e) {
         console.log('entrei no else if: ', e.response.data)
         Vue.toasted.global.defaultError({ msg: e })
     } else {
+        console.log('entrei no else: ', e.response.data)
         Vue.toasted.global.defaultError()
     }
 }

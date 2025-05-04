@@ -125,9 +125,9 @@ export default {
 
             await CategoryController
                 .Save(method, id, this.category)
-                .then(() => {
+                .then(async () => {
                     this.$toasted.global.defaultSuccess();
-                    this.reset();
+                    await this.reset();
                 })
                 .catch(showError);
         },
@@ -136,19 +136,20 @@ export default {
 
             await CategoryController
                 .Delete(id)
-                .then(() => {
+                .then(async () => {
                     this.$toasted.global.defaultSuccess();
-                    this.reset();
+                    await this.reset();
                 })
                 .catch(showError);
         },
-        reset() {
+        async reset() {
             this.mode = 'save';
             this.category = {};
-            this.loadCategories();
+            await this.loadCategories();
         }
     },
     async mounted() {
+        console.log('categoria')
         await this.loadCategories();
         await this.loadSelectCategories();
 

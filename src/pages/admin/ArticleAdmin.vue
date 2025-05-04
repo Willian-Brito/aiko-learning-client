@@ -202,9 +202,9 @@ export default {
 
             await ArticleController
                 .Save(method, id, this.article)
-                .then(() => {
+                .then(async () => {
                     this.$toasted.global.defaultSuccess();
-                    this.reset();
+                    await this.reset();
                 })
                 .catch(showError);
         },
@@ -213,19 +213,20 @@ export default {
 
             await ArticleController
                 .Delete(id)
-                .then(() => {
+                .then(async () => {
                     this.$toasted.global.defaultSuccess();
-                    this.reset();
+                    await this.reset();
                 })
                 .catch(showError);
         },
-        reset() {
+        async reset() {
             this.mode = 'save';
             this.article = {};
-            this.loadArticles();
+            await this.loadArticles();
         }
     },
     async mounted() {
+        console.log('artigos')
         await this.loadCategories();
         await this.loadSelectCategories();
         await this.loadUsers();
