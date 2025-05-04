@@ -87,6 +87,7 @@
 .app-brand .layout-menu-toggle {
   position: absolute;
   inset-inline-start: 17.2rem;
+  /* inset-inline-start: 15.2rem; */
   border-radius: 50%;
   opacity: 1;
   z-index: 3;
@@ -131,10 +132,10 @@ a.bg-primary:hover, a.bg-primary:focus {
   background-color: #696cff;
 }
 
-.bg-label-primary {
+/* .bg-label-primary {
   background-color: #e7e7ff !important;
   color: #696cff !important;
-}
+} */
 
 .border-label-primary {
   border: 3px solid #c3c4ff !important;

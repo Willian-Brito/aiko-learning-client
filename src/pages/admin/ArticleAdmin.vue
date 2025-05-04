@@ -273,4 +273,12 @@ span.ql-picker-label {
   opacity: 0.6;
 }
 
+.ql-toolbar.ql-snow {
+    border: 1px solid var(--bs-border-color) !important;
+}
+
+.ql-container.ql-snow {
+    border: 1px solid var(--bs-border-color) !important;
+}
+
 </style>

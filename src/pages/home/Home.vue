@@ -6,10 +6,34 @@
             sub="Base de Conhecimento" 
         /> -->
         <Welcome />
-        <div class="stats">
-            <Stat title="Categorias" :value="stat.categoriesCount" icon="fa fa-folder" color="#d54d50" />
-            <Stat title="Artigos" :value="stat.articlesCount" icon="fa fa-file" color="#3bc480" />
-            <Stat title="Usuários" :value="stat.usersCount" icon="fa fa-user" color="#3282cd" />
+        <!-- avatar-initial rounded bg-label-danger -->
+        <div class="stats"> 
+            <Stat 
+                title="Categorias" 
+                :value="stat.categoriesCount" 
+                type="avatar-initial rounded bg-label-danger"
+                icon="fa fa-folder" 
+                color="#d54d50" 
+                class="card card-border-shadow-danger h-100" 
+                style="display: flex; flex-direction: row;"/>
+
+            <Stat 
+                title="Artigos" 
+                :value="stat.articlesCount" 
+                type="avatar-initial rounded bg-label-info"
+                icon="fa fa-file" 
+                color="#03c3ec" 
+                class="card card-border-shadow-info h-100" 
+                style="display: flex; flex-direction: row;"/>
+
+            <Stat 
+                title="Usuários" 
+                :value="stat.usersCount" 
+                type="avatar-initial rounded bg-label-primary"
+                icon="fa fa-user" 
+                color="#696cff" 
+                style="display: flex; flex-direction: row;"
+                class="card card-border-shadow-primary h-100"/>
         </div>
     </div>
 </template>

@@ -212,7 +212,7 @@ export default {
     }
 
     .layout-menu.menu-vertical.menu.bg-menu-theme.close:hover {
-      width: 300px !important;
+      width: var(--bs-width-menu-vertical) !important;
       z-index: 100;
     }
 

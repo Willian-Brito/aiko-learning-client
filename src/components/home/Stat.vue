@@ -1,23 +1,42 @@
-<template>
-    <!-- <div class="card">
-        <div class="card-body"> -->
-            <div class="stat">
-                <div class="stat-icon">
+<template>    
+    <!-- <div class="card-body"> -->
+        <div class="stat">
+            <div :class="type" style="display: flex;">
+                <span class="stat-icon">
                     <i :class="icon" :style="style"></i>
-                </div>
-                <div class="stat-info">
-                    <span class="stat-title">{{ title }}</span>
-                    <span class="stat-value">{{ value }}</span>
+                </span>
+            </div>
+            <div class="stat-info">
+                <span class="stat-title">{{ title }}</span>
+                <span class="stat-value">{{ value }}</span>
+            </div>
+        </div>
+
+
+        <!-- <div class="stat">
+            <div class="card card-border-shadow-primary h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="avatar me-4">
+                            <span class="avatar-initial rounded bg-label-primary">
+                                <i :class="icon"></i>
+                            </span>
+                        </div>                        
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-title">{{ title }}</span>
+                        <span class="stat-value">{{ value }}</span>
+                    </div>
                 </div>
             </div>
-        <!-- </div>
-    </div> -->
+        </div> -->
+    <!-- </div>     -->
 </template>
 
 <script>
 export default {
     name: 'Stat',
-    props: ['title', 'value', 'icon', 'color'],
+    props: ['title', 'value', 'icon', 'color', 'type'],
     computed:{
         style() {
             return "color: " + (this.color || "#22303e")
@@ -34,7 +53,6 @@ export default {
         margin: 20px 5px;
         background-color: var(--bs-color-light);
         padding: 20px;
-        border: 1px solid var(--bs-border-color);
         box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
     }
 
@@ -46,10 +64,12 @@ export default {
     .stat-icon {
         display: flex;
         align-items: center;
+        width: 100px;
+        justify-content: center;
     }
 
     .stat-icon i {
-        font-size: 5rem;
+        font-size: 3rem;
         
     }
 
