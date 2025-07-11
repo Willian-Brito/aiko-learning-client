@@ -1,0 +1,15 @@
+services:
+  vue:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: aiko-learning-vue
+    ports:
+      - "8080:80"
+    networks:
+      - default
+
+networks:
+  default: 
+    external: true   
+    name: aiko-network
