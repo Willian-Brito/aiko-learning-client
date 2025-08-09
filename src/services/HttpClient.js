@@ -21,6 +21,14 @@ class HttpClient {
     async delete(url) {
         return await axios.delete(url)
     }
+
+    setHeader(header, value) {
+        axios.defaults.headers.common[header] = value
+    }
+
+    deleteHeader(header) {
+        delete axios.defaults.headers.common[header]
+    }
 }
 
 export default new HttpClient()

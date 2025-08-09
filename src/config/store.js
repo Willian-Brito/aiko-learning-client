@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
+import http from '@/services/HttpClient.js'
 import { THEME_KEY } from '@/config/environment.js'
 
 Vue.use(Vuex)
@@ -49,12 +49,12 @@ Vue.use(Vuex)
             state.user = user
 
             if(user) {
-                axios.defaults.headers.common['Authorization'] = `bearer ${user.accessToken}`
+                http.setHeader('Authorization', `Bearer ${user.accessToken}`)
                 state.loginPage = false
                 state.isMenuVisible = true
                 state.showHeader = true
-            } else {                
-                delete axios.defaults.headers.common['Authorization']
+            } else {         
+                http.deleteHeader('Authorization')
                 state.loginPage = true
                 state.isMenuVisible = false
                 state.showHeader = false
