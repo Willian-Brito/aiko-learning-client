@@ -22,8 +22,8 @@ FROM nginx:alpine
 # Copiar os arquivos de distribuição do estágio de construção para o diretório de serviço do Nginx
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Expor a porta 8080
-EXPOSE 8080
+# Expor a porta 8081
+EXPOSE 8081
 
 # Iniciar o Nginx quando o contêiner for iniciado
 CMD ["nginx", "-g", "daemon off;"]

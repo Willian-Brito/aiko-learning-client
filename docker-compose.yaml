@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: aiko-learning-vue
     ports:
-      - "8080:80"
+      - "8081:80"
     networks:
       - default
 
